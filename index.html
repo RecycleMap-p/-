@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SimBa의 카카오 지도</title>
+  <style>
+    #map {
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h2>SimBa의 카카오 지도 🗺️</h2>
+  <div id="map"></div>
+
+  <!-- 명시적으로 http:// 추가 -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f143a20f2be877dcef35366b593462b0"></script>
+  <script>
+    const container = document.getElementById('map');
+    const options = {
+      center: new kakao.maps.LatLng(37.5665, 126.9780),
+      level: 3
+    };
+    const map = new kakao.maps.Map(container, options);
+  </script>
+</body>
+</html>
