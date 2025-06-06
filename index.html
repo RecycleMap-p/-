@@ -14,15 +14,23 @@
   <h2>SimBa의 카카오 지도 🗺️</h2>
   <div id="map"></div>
 
-  <!-- 명시적으로 http:// 추가 -->
-  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f143a20f2be877dcef35366b593462b0"></script>
+  <!-- SDK 로드 성공/실패 확인은 속성으로 -->
+  <script 
+    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f143a20f2be877dcef35366b593462b0"
+    onload="console.log('✅ 카카오 SDK 로드 성공')"
+    onerror="console.error('❌ 카카오 SDK 로드 실패')">
+  </script>
+
+  <!-- DOMContentLoaded 안에서 실행 -->
   <script>
-    const container = document.getElementById('map');
-    const options = {
-      center: new kakao.maps.LatLng(37.5665, 126.9780),
-      level: 3
-    };
-    const map = new kakao.maps.Map(container, options);
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('map');
+      const options = {
+        center: new kakao.maps.LatLng(37.5665, 126.9780),
+        level: 3
+      };
+      const map = new kakao.maps.Map(container, options);
+    });
   </script>
 </body>
 </html>
